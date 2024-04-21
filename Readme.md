@@ -22,20 +22,16 @@ OPTIONS:
 ```
 ---
 # Usage
-`docker run -d --net mynet --name prtg-mpp -e NEXT_NATS_URL=nats://nats -e PRTGMPPROBE_NAME=multi-platform-probe-docker zimbres/prtg-multi-platform-probe`
+`docker run -d --net mynet --name prtg-mpp -e PRTGMPPROBE__NATS__URL=nats://nats -e PRTGMPPROBE__ACCESS_KEY=multi-platform-probe -e PRTGMPPROBE__NAME=multi-platform-probe-docker -e PRTGMPPROBE__NATS__AUTHENTICATION__USER=PRTG -e PRTGMPPROBE__NATS__AUTHENTICATION__PASSWORD=PRTG -e PRTGMPPROBE__ID="bf6e8daf-0b06-4285-b755-7b5b2f6a5989" zimbres/prtg-multi-platform-probe`
 ---
 ### Options
-- Access key to validate for PRTG core [env: PRTGMPPROBE_ACCESS_KEY=][default:multi-platform-probe]
-- Interval [sec] in which heartbeat messages are sent to the NATS server [env:PRTGMPPROBE_HEARTBEAT=][default: 30]
-- Persistent ID of the probe itself [env: PRTGMPPROBE_ID=][default: 936da01f-9abd-4d9d-80c7-02af85c822a8]
-- The log level that is written in the log file [env: PRTGMPPROBE_LOG_LEVEL=][default: info]
-- Human readable name of the probe [env: PRTGMPPROBE_NAME=][default: multi-platform-probe]
-- IP address of the NATS server [env: PRTGMPPROBE_NATS_IP=][default: 127.0.0.1]
-- Port the NATS server listens to [env: PRTGMPPROBE_NATS_PORT=][default: 23561]
-- Password of the NATS user [env: PRTGMPPROBE_NATS_PWD=][default: PRTG]
-- The complete URL of the NATS server. When this is set IP and port are ignored [env:NEXT_NATS_URL=]
-- NATS user account [env: PRTGMPPROBE_NATS_USER=][default: PRTG]
-- Timeout for momo sensor scans in [sec] [env: PRTGMPPROBE_MOMO_TIMEOUT=][default:900]
+- Access key to validate for PRTG core [env: PRTGMPPROBE__ACCESS_KEY=]
+- Persistent ID of the probe itself [env: PRTGMPPROBE__ID=]
+- Human readable name of the probe [env: PRTGMPPROBE__NAME=]
+- The complete URL of the NATS server. [env: PRTGMPPROBE__NATS__URL=]
+- NATS user account [env: PRTGMPPROBE__NATS__AUTHENTICATION__USER=]
+- Password of the NATS user [env: PRTGMPPROBE__NATS__AUTHENTICATION__PASSWORD=]
+
 
 ---
-* prtgmpprobe 0.17.0+2339
+* prtgmpprobe 1.0.0+10193-1
